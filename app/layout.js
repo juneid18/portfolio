@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body style={{overflowX:'hidden'}} className={inter.className}>{children}</body>
     </html>
   );

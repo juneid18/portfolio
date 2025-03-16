@@ -1,104 +1,116 @@
-import styles from './skills.module.css'
+import styles from './skills.module.css';
 
-const skills = () => {
+export default function Skills() {
   return (
     <>
-    <div className={styles.container}>
-<div className={styles.skills}>
-        <h1 className={styles.skl}>MY SKILLS</h1>
-        <p className={`${styles.skl} ${styles.sklLine}`}>_________</p>
-        <div className={`${styles.htmlProg} ${styles.ProgWidth}`}>
-          <div className={styles.p}>
-            <p>HTML</p>
-            <p>95%</p>
+      <section className={styles.skillsContainer}>
+      
+        <div className={styles.skillsHeader}>
+          <h2>Technical Expertise</h2>
+          <p>A comprehensive overview of my professional skills and competencies</p>
+        </div>
+        
+        <div className={styles.skillsGrid}>
+          <div className={styles.skillCategory}>
+            <h3>Frontend Development</h3>
+            <ul className={styles.skillList}>
+              <li>
+                HTML5 & CSS3
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '95%' }}></div>
+                </div>
+              </li>
+              <li>
+                JavaScript (ES6+)
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '90%' }}></div>
+                </div>
+              </li>
+              <li>
+                React.js
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '85%' }}></div>
+                </div>
+              </li>
+              <li>
+                UI/UX Design
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '80%' }}></div>
+                </div>
+              </li>
+              <li>
+              React Native
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '60%' }}></div>
+                </div>
+              </li>
+            </ul>
           </div>
-          <div className={styles.pp}>
-            <div className={styles.skillDiv}>
-              <span className={`${styles.skillBar} ${styles.htmlBar}`}></span>
-            </div>
+          <div className={styles.skillCategory}>
+            <h3>Backend Development</h3>
+            <ul className={styles.skillList}>
+              <li>
+                Node.js
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '88%' }}></div>
+                </div>
+              </li>
+              <li>
+                Python
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '85%' }}></div>
+                </div>
+              </li>
+              <li>
+                Database Design
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '92%' }}></div>
+                </div>
+              </li>
+              <li>
+                API Development
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '90%' }}></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className={styles.skillCategory}>
+            <h3>DevOps & Tools</h3>
+            <ul className={styles.skillList}>
+              <li>
+                Git & GitHub
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '95%' }}></div>
+                </div>
+              </li>
+              <li>
+                Docker
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '82%' }}></div>
+                </div>
+              </li>
+              <li>
+                CI/CD
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '88%' }}></div>
+                </div>
+              </li>
+              <li>
+                Cloud Services
+                <div className={styles.proficiencyBar}>
+                  <div className={styles.proficiencyLevel} style={{ width: '85%' }}></div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-        <div className={`${styles.cssProg} ${styles.ProgWidth}`}>
-          <div className={styles.p}>
-            <p>CSS3</p>
-            <p>90%</p>
-          </div>
-          <div className={styles.pp}>
-            <div className={styles.skillDiv}>
-              <span className={`${styles.skillBar} ${styles.cssBar}`}></span>
-            </div>
-          </div>
+        <div className={styles.designContainer}>
+          <span className={styles.line1}>.</span>
+          <span className={styles.line2}>.</span>
+          <span className={styles.line3}>.</span>
         </div>
-        <div className={`${styles.jsProg} ${styles.ProgWidth}`}>
-          <div className={styles.p}>
-            <p>JavaScript</p>
-            <p>75%</p>
-          </div>
-          <div className={styles.pp}>
-            <div className={styles.skillDiv}>
-              <span className={`${styles.skillBar} ${styles.jsBar}`}></span>
-            </div>
-          </div>
-        </div>
-        <div className={`${styles.javaProg} ${styles.ProgWidth}`}>
-          <div className={styles.p}>
-            <p>Nextjs</p>
-            <p>85%</p>
-          </div>
-          <div className={styles.pp}>
-            <div className={styles.skillDiv}>
-              <span className={`${styles.skillBar} ${styles.javaBar}`}></span>
-            </div>
-          </div>
-        </div>
-        <div className={`${styles.ccpProg} ${styles.ProgWidth}`}>
-          <div className={styles.p}>
-            <p>Sanity</p>
-            <p>80%</p>
-          </div>
-          <div className={styles.pp}>
-            <div className={styles.skillDiv}>
-              <span className={`${styles.skillBar} ${styles.ccpBar}`}></span>
-            </div>
-          </div>
-        </div>
-        <div className={`${styles.reactProg} ${styles.ProgWidth}`}>
-          <div className={styles.p}>
-            <p>React</p>
-            <p>70%</p>
-          </div>
-          <div className={styles.pp}>
-            <div className={styles.skillDiv}>
-              <span className={`${styles.skillBar} ${styles.reactBar}`}></span>
-            </div>
-          </div>
-        </div>
-        <div className={`${styles.nodeProg} ${styles.ProgWidth}`}>
-          <div className={styles.p}>
-            <p>Node.js</p>
-            <p>35%</p>
-          </div>
-          <div className={styles.pp}>
-            <div className={styles.skillDiv}>
-              <span className={`${styles.skillBar} ${styles.nodeBar}`}></span>
-            </div>
-          </div>
-        </div>
-        <div className={`${styles.sqlProg} ${styles.ProgWidth}`}>
-          <div className={styles.p}>
-            <p>Database</p>
-            <p>85%</p>
-          </div>
-          <div className={styles.pp}>
-            <div className={styles.skillDiv}>
-              <span className={`${styles.skillBar} ${styles.sqlBar}`}></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </section>
     </>
-  )
+  );
 }
-
-export default skills

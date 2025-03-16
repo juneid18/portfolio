@@ -1,82 +1,83 @@
-import { useEffect, useState } from 'react';
-import styles from './blog.module.css';
-import { client } from '../../client'; 
-import imageUrlBuilder from '@sanity/image-url';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import { client } from "../../client";
+import imageUrlBuilder from "@sanity/image-url";
+import Image from "next/image";
+import styles from "./blog.module.css"; // Use CSS modules instead of styled-jsx
 
-const Blog = () => {
-  const [blogData, setBlogData] = useState([]);
-  const [count, setCount] = useState(2);
-
-  useEffect(() => {
-    async function getBlog() {
-      try {
-        const query = `*[_type == 'blog'][0..${count}]`;
-        const data = await client.fetch(query);
-        
-        if (!data) {
-          console.warn('Failed to fetch blog data');
-        } else {
-          setBlogData(data);
-        }
-      } catch (error) {
-        console.error('Error fetching blog data:', error);
-      }
-    }
-    
-    getBlog();
-  }, [count]);
-
-  const handleViewMore = () => {
-    setCount(prevCount => prevCount + 8);
-  };
+const Achievements = () => {
+  const [achievements, setAchievements] = useState([]);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const builder = imageUrlBuilder(client);
 
-  function urlFor(source) {
-    return builder.image(source).url();
-  }
+  useEffect(() => {
+    const fetchAchievements = async () => {
+      try {
+        const query = `*[_type == 'blog']`;
+        const data = await client.fetch(query);
+
+        if (!data?.length) {
+          throw new Error("No achievements found");
+        }
+
+        setAchievements(data);
+      } catch (err) {
+        console.error("Error fetching achievements:", err);
+        setError("Failed to load achievements. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAchievements();
+  }, []);
+
+  if (loading) return <div className={styles.loading}>Loading achievements...</div>;
+  if (error) return <div className={styles.error}>{error}</div>;
 
   return (
-    <div className={styles.main}>
-      <h1>Blog</h1>
+    <section className={styles.section}>
       <div className={styles.container}>
-        {blogData.map((blogPost) => (
-          <div key={blogPost._id} className={styles.card}>
-            <Link
-            style={{textDecoration:'none'}}
-              href={{
-                pathname: '/Blog', // Ensure the pathname is correct
-                query: { ID: blogPost._id },
-              }}
-              className={styles.link} // Use CSS class for styling
+        <header className={styles.header}>
+          <h2>Professional Achievements</h2>
+          <p>
+            Key milestones and accomplishments demonstrating my technical expertise 
+            and professional growth.
+          </p>
+        </header>
+
+        <div className={styles.grid}>
+          {achievements.map((achievement, index) => (
+            <article 
+              key={achievement._id}
+              className={styles.card}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              role="button"
+              tabIndex={0}
             >
-              <div className={styles.card__header}>
-                <Image
-                  src={urlFor(blogPost.poster.asset._ref) || 'https://media.sproutsocial.com/uploads/2023/03/Blogging-Tips-01.svg'}
-                  alt={blogPost.title}
-                  className={styles.card__image}
-                  width={600}
-                  height={200}
-                />
-              </div>
-              <div className={styles.card__body}>
-                <h4>{blogPost.title}</h4>
-                <p>{blogPost.metadescription}</p>
-              </div>
-              <div className={styles.card__footer}>
-                <span>Published at: {new Date(blogPost._createdAt).toLocaleDateString()}</span>
-              </div>
-            </Link>
-          </div>
-        ))}
+              <div className={styles.number}>{index + 1}</div>
+              <p className={styles.title}>{achievement.title}</p>
+
+              {hoveredIndex === index && achievement.poster && (
+                <div className={styles.preview}>
+                  <Image
+                    src={builder.image(achievement.poster).url()}
+                    alt={`Visual representation of ${achievement.title}`}
+                    width={200}
+                    height={150}
+                    className={styles.previewImage}
+                  />
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
       </div>
-      <button onClick={handleViewMore} className={styles.viewMore}>
-        Load More
-      </button>
-    </div>
+    </section>
   );
 };
 
-export default Blog;
+export default Achievements;

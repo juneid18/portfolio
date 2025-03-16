@@ -1,66 +1,117 @@
-import { useEffect, useState } from 'react';
-import styles from './projects.module.css'
-import { client } from '../../client'; 
-import imageUrlBuilder from '@sanity/image-url'
-import Link from 'next/link';
+import { useEffect, useState } from "react";
+import styles from "./projects.module.css";
+import { client } from "../../client";
+import imageUrlBuilder from "@sanity/image-url";
+import Image from "next/image";
+import { FiExternalLink } from "react-icons/fi";
+// import Loader from "../Loader"; // Create a simple spinner component
 
 const ProjectsPage = () => {
-  const [ProjectData, setProjectData] = useState([]);
+  const [projectData, setProjectData] = useState([]);
+  const [count, setCount] = useState(3); // Start with 3 projects
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
-    async function getProject() {
+    const getProjects = async () => {
       try {
-        const query = `*[_type == 'project'][0..3]`;
+        setLoading(true);
+        setError(null);
+        
+        const query = `*[_type == 'project'][0...${count}]`;
         const data = await client.fetch(query);
-        
-        if (!data) {
-          console.warn('Failed to fetch project data');
+
+        if (!data?.length) {
+          throw new Error("No projects found");
         }
-        
-        return data;
-      } catch (error) {
-        console.error('Error fetching project data:', error);
-        throw error; 
+
+        setProjectData(data);
+      } catch (err) {
+        console.error("Project fetch error:", err);
+        setError("Failed to load projects. Please refresh the page.");
+      } finally {
+        setLoading(false);
       }
-    }
-    
-    getProject().then((data) => setProjectData(data)).catch((error) => console.error('Error setting project data:', error));
-  }, []);
+    };
 
+    getProjects();
+  }, [count]);
 
-  const builder = imageUrlBuilder(client)
+  const handleLoadMore = () => setCount(prev => prev + 3);
 
-  function urlFor(source) {
-    return builder.image(source)
-  }
+  const builder = imageUrlBuilder(client);
+  const urlFor = (source) => builder.image(source);
 
   return (
-    <>
-     <div className={styles.container}>
-      <h1>Projects</h1>
+    <section className={styles.container}>
+      <header className={styles.header}>
+        <h2>My Projects</h2>
+        <p>
+          A collection of innovative projects I've developed, showcasing technical 
+          expertise and creative problem-solving.
+        </p>
+      </header>
 
-      <div className={styles.grid_container}>
-        {ProjectData.map((project, index) => (
-          <Link href='./Project'
-            key={index}
-            className={`${styles.grid_item} ${styles[`item${index + 1}`]}`}
-            style={{ backgroundImage: `url(${urlFor(project.poster).url()})`, textDecoration:'none'}}
-          >
-            <div className={styles.detail}>
-              <h2>{project.title}</h2>
-              <p>{project.detail}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
-      <Link style={{display:'flex', justifyContent:'center', textDecoration:'none'}} href='./Project'>
-        <button className={styles.viewMore}>
-          See More
-        </button>
-      </Link>
-    </div>
-    </>
-  )
-}
+      {loading ? (
+        <div className={styles.loader}>
+          {/* <Loader /> */}
+          <span>Loading Projects...</span>
+        </div>
+      ) : error ? (
+        <p className={styles.error}>{error}</p>
+      ) : (
+        <>
+          <div className={styles.grid}>
+            {projectData.map((project, index) => (
+              <article 
+                className={`${styles.card} ${hoveredIndex === index ? styles.hovered : ""}`}
+                key={project._id}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <div className={styles.imageWrapper}>
+                  <Image
+                    src={urlFor(project.poster).url()}
+                    alt={`${project.title} screenshot`}
+                    layout="fill"
+                    objectFit="cover"
+                    quality={85}
+                  />
+                </div>
+
+                <div className={styles.content}>
+                  <h3>{project.title}</h3>
+                  <p className={styles.description}>
+                    {project.detail}
+                  </p>
+                  <a 
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.link}
+                  >
+                    View Project
+                    <FiExternalLink />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {projectData.length >= count && (
+            <button 
+              className={styles.loadMore}
+              onClick={handleLoadMore}
+              disabled={loading}
+            >
+              {loading ? 'Loading...' : 'Show More'}
+            </button>
+          )}
+        </>
+      )}
+    </section>
+  );
+};
 
 export default ProjectsPage;

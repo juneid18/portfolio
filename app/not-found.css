@@ -1,0 +1,63 @@
+/*======================
+    404 Page Styling
+=======================*/
+
+.page_404 {
+  padding: 60px 20px;
+  font-family: "Arvo", serif;
+  text-align: center;
+  color: #333;
+}
+
+/* Image settings */
+.page_404 img {
+  width: 50%;
+  max-width: 600px;
+  margin-bottom: 30px;
+  object-fit: cover;
+}
+/* Header styling for the 404 text */
+.four_zero_four_bg h1,
+.four_zero_four_bg h3 {
+  font-size: 90px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* 404 Link button styling */
+.link_404 {
+  color: #fff !important;
+  padding: 12px 25px;
+  background-color: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover effect for the 404 button */
+.link_404:hover {
+  background-color: #34a829;
+  transform: translateY(-2px);
+}
+
+/* Container box adjustments */
+.contant_box_404 {
+  margin-top: -50px;
+}
+
+@media (max-width: 768px) {
+  .four_zero_four_bg h1,
+  .four_zero_four_bg h3 {
+      font-size: 60px;
+  }
+  .link_404 {
+      padding: 10px 20px;
+      font-size: 16px;
+  }
+}

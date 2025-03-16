@@ -13,7 +13,12 @@ const service = () => {
   return (
     <>
        <div className={styles.container}>
-        <h2>Our Services</h2>
+       
+       <div className={styles.skillsHeader}>
+          <h2>Our Services</h2>
+          <p>A detailed overview of the solutions I offer, tailored to meet your needs and drive success.</p>
+        </div>
+        
         <div className={styles.row}>
             <div className={styles.service}>
             <i><FaCode /></i>
@@ -55,6 +60,12 @@ const service = () => {
                 <h3>Testing and Debugging</h3>
                 <p>Ensuring code quality through unit testing, integration testing, and end-to-end testing, as well as debugging and troubleshooting applications.</p>
             </div>
+            
+        </div>
+        <div className={styles.designContainer}>
+          <span className={styles.line1}>.</span>
+          <span className={styles.line2}>.</span>
+          <span className={styles.line3}>.</span>
         </div>
     </div>
     </>
