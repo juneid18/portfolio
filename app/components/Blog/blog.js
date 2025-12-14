@@ -41,7 +41,7 @@ const Achievements = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <h2>Professional Achievements</h2>
+          <h2 id="blog-heading">Professional Achievements</h2>
           <p>
             Key milestones and accomplishments demonstrating my technical expertise 
             and professional growth.

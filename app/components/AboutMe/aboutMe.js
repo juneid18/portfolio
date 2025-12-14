@@ -6,7 +6,7 @@ const AboutMe = () => {
   return (
     <>
       <div className={styles.skillsHeader}>
-          <h2>About Me</h2>
+          <h2 id="about-heading">About Me</h2>
           <p>A glimpse into my background, passion, and the journey that has shaped me both personally and professionally.</p>
         </div>
       <div className={styles.about_container}>
@@ -31,8 +31,9 @@ const AboutMe = () => {
           <br />
           <a
             className={styles.resumebtn}
-            href="https://docs.google.com/document/d/1hO1cZe4F2_NdbAWhqIKhZCFvEzCmAGtyH0uFSWaH-Mc/edit?tab=t.0"
-            target="_blank"
+            href="/assets/resume.docx"
+            download
+            aria-label="Download my resume"
           >
             Download My Resume
           </a>
@@ -40,23 +41,18 @@ const AboutMe = () => {
         <div className={styles.about_container_right}>
           <h2>Hello There!</h2>
           <p>
-            Experienced Full Stack Developer proficient in React.js, Next.js,
-            MongoDB, and more. With a proven track record in crafting
-            user-centric web applications, I specialize in delivering
-            high-quality, scalable solutions that exceed expectations. From
-            personalized e-commerce platforms to real-time chat applications, I
-            bring creativity and technical expertise to every project.
+            I'm a full-stack developer who builds products with real users and real constraints — not just classroom tutorials. I focus on solving problems end-to-end: clean UI, solid backend logic, reliable infrastructure, and smooth deployment.
           </p>
 
-          <br />
+          
           <p>
-            My dedication to optimizing performance and user experience has
-            resulted in tangible outcomes, including increased engagement and
-            enhanced customer satisfaction. With a keen eye for detail and a
-            passion for innovation, I am committed to driving success in
-            collaborative environments. Seeking opportunities to leverage my
-            skills and contribute to impactful projects. Let&apos;s connect and
-            explore how I can add value to your team.
+            I’ve shipped projects like an automated YouTube scheduling SaaS, an AI-based fridge scanner, a full-stack blogging system with authentication, and a real-time chat platform. Each project forced me to think like an engineer — handling edge cases, making architecture decisions, optimizing performance, and keeping the system stable when things go wrong.
+          </p>
+          
+          <p>I care about writing clean, predictable code that future me doesn’t hate, and I’m constantly improving how I design systems, review code, and break down complex tasks. I’m comfortable learning whatever a problem demands — React, Node.js, MongoDB, authentication flows, background jobs, cloud storage, or automation tools.</p>
+          
+          <p>
+            Right now, I’m looking for a role where I can take ownership, contribute to a real product from day one, and grow alongside people who take engineering seriously. If you’re looking for someone who works hard, learns fast, and actually delivers, then we should talk.
           </p>
           <a
             href="https://www.linkedin.com/in/juneid-shaikh/"
