@@ -14,7 +14,7 @@ export default function NotFound() {
               </div>
               <Image src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif" width={100} height={200} alt="404 page" />
               <div class="contant_box_404">
-                <h3 class="h2">Look like you're lost</h3>
+                <h3 class="h2">Look like you&apos;re lost</h3>
 
                 <p>the page you are looking for not avaible!</p>
 
