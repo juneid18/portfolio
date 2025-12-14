@@ -33,14 +33,18 @@ export default function Home() {
   // Close nav when clicking outside (accessibility improvement)
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isNavOpen && !event.target.closest(`#${styles.mySidenav}`) && !event.target.closest(`.${styles.openBtn}`)) {
+      if (
+        isNavOpen &&
+        !event.target.closest(`#${styles.mySidenav}`) &&
+        !event.target.closest(`.${styles.openBtn}`)
+      ) {
         closeNav();
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleKeyDown);
-    
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
@@ -55,78 +59,145 @@ export default function Home() {
       </a>
       {/* eslint-disable-next-line react/no-unescaped-entities */}
       <div className={styles.container} id="home">
-      {/* Mobile Side Nav */}
-      <nav className={styles.mobilenvacon} aria-label="Mobile navigation">
-        <div
-          id={styles.mySidenav}
-          className={`${styles.sidenav} ${isNavOpen ? styles.open : ""}`}
-          role="navigation"
-          aria-label="Mobile menu"
-          aria-hidden={!isNavOpen}
-        >
-          <button 
-            className={styles.closeBtn} 
-            onClick={closeNav}
-            onKeyDown={(e) => e.key === "Enter" && closeNav()}
-            aria-label="Close navigation menu"
-            type="button"
+        {/* Mobile Side Nav */}
+        <nav className={styles.mobilenvacon} aria-label="Mobile navigation">
+          <div
+            id={styles.mySidenav}
+            className={`${styles.sidenav} ${isNavOpen ? styles.open : ""}`}
+            role="navigation"
+            aria-label="Mobile menu"
+            aria-hidden={!isNavOpen}
           >
-            &times;
-          </button>
-          <a href="#home" onClick={closeNav} onKeyDown={(e) => e.key === "Enter" && closeNav()}>Home</a>
-          <a href="#aboutme" onClick={closeNav} onKeyDown={(e) => e.key === "Enter" && closeNav()}>About</a>
-          <a href="#skills" onClick={closeNav} onKeyDown={(e) => e.key === "Enter" && closeNav()}>Skills</a>
-          <a href="#case-studies" onClick={closeNav} onKeyDown={(e) => e.key === "Enter" && closeNav()}>Case Studies</a>
-          <a href="#why-hire-me" onClick={closeNav} onKeyDown={(e) => e.key === "Enter" && closeNav()}>Why Hire Me</a>
-          <a href="#projects" onClick={closeNav} onKeyDown={(e) => e.key === "Enter" && closeNav()}>Projects</a>
-          <a href="#blog" onClick={closeNav} onKeyDown={(e) => e.key === "Enter" && closeNav()}>Achievements</a>
-          <a 
-            href="mailto:prof.juneidshaikh18@gmail.com?subject=Let's%20Talk%20About%20Opportunities" 
-            onClick={closeNav}
-            style={{
-              marginTop: '1rem',
-              padding: '0.8rem 2rem',
-              background: 'rgba(255, 255, 255, 0.2)',
-              borderRadius: '25px',
-              textAlign: 'center',
-              fontWeight: '600'
-            }}
-          >
-            Contact Me
-          </a>
-        </div>
-      </nav>
+            <button
+              className={styles.closeBtn}
+              onClick={closeNav}
+              onKeyDown={(e) => e.key === "Enter" && closeNav()}
+              aria-label="Close navigation menu"
+              type="button"
+            >
+              &times;
+            </button>
+            <a
+              href="#home"
+              onClick={closeNav}
+              onKeyDown={(e) => e.key === "Enter" && closeNav()}
+            >
+              Home
+            </a>
+            <a
+              href="#aboutme"
+              onClick={closeNav}
+              onKeyDown={(e) => e.key === "Enter" && closeNav()}
+            >
+              About
+            </a>
+            <a
+              href="#skills"
+              onClick={closeNav}
+              onKeyDown={(e) => e.key === "Enter" && closeNav()}
+            >
+              Skills
+            </a>
+            <a
+              href="#case-studies"
+              onClick={closeNav}
+              onKeyDown={(e) => e.key === "Enter" && closeNav()}
+            >
+              Case Studies
+            </a>
+            <a
+              href="#why-hire-me"
+              onClick={closeNav}
+              onKeyDown={(e) => e.key === "Enter" && closeNav()}
+            >
+              Why Hire Me
+            </a>
+            <a
+              href="#projects"
+              onClick={closeNav}
+              onKeyDown={(e) => e.key === "Enter" && closeNav()}
+            >
+              Projects
+            </a>
+            <a
+              href="#blog"
+              onClick={closeNav}
+              onKeyDown={(e) => e.key === "Enter" && closeNav()}
+            >
+              Achievements
+            </a>
+            <a
+              href="mailto:prof.juneidshaikh18@gmail.com?subject=Let's%20Talk%20About%20Opportunities"
+              onClick={closeNav}
+              style={{
+                marginTop: "1rem",
+                padding: "0.8rem 2rem",
+                background: "rgba(255, 255, 255, 0.2)",
+                borderRadius: "25px",
+                textAlign: "center",
+                fontWeight: "600",
+              }}
+            >
+              Contact Me
+            </a>
+          </div>
+        </nav>
         {/* Modern Navigation Bar */}
-        <nav className={styles.navigation_container} aria-label="Main navigation">
+        <nav
+          className={styles.navigation_container}
+          aria-label="Main navigation"
+        >
           <div className={styles.navbar}>
             <div className={styles.navLogo}>
               <a href="#home">JS</a>
             </div>
             <ul className={styles.navMenu} role="menubar" data-open={isNavOpen}>
               <li role="none">
-                <a href="#home" role="menuitem" className={styles.navLink}>Home</a>
+                <a href="#home" role="menuitem" className={styles.navLink}>
+                  Home
+                </a>
               </li>
               <li role="none">
-                <a href="#aboutme" role="menuitem" className={styles.navLink}>About</a>
+                <a href="#aboutme" role="menuitem" className={styles.navLink}>
+                  About
+                </a>
               </li>
               <li role="none">
-                <a href="#skills" role="menuitem" className={styles.navLink}>Skills</a>
+                <a href="#skills" role="menuitem" className={styles.navLink}>
+                  Skills
+                </a>
               </li>
               <li role="none">
-                <a href="#case-studies" role="menuitem" className={styles.navLink}>Case Studies</a>
+                <a
+                  href="#case-studies"
+                  role="menuitem"
+                  className={styles.navLink}
+                >
+                  Case Studies
+                </a>
               </li>
               <li role="none">
-                <a href="#why-hire-me" role="menuitem" className={styles.navLink}>Why Hire Me</a>
+                <a
+                  href="#why-hire-me"
+                  role="menuitem"
+                  className={styles.navLink}
+                >
+                  Why Hire Me
+                </a>
               </li>
               <li role="none">
-                <a href="#projects" role="menuitem" className={styles.navLink}>Projects</a>
+                <a href="#projects" role="menuitem" className={styles.navLink}>
+                  Projects
+                </a>
               </li>
               <li role="none">
-                <a href="#blog" role="menuitem" className={styles.navLink}>Achievements</a>
+                <a href="#blog" role="menuitem" className={styles.navLink}>
+                  Achievements
+                </a>
               </li>
             </ul>
-            <a 
-              href="mailto:prof.juneidshaikh18@gmail.com?subject=Let's%20Talk%20About%20Opportunities" 
+            <a
+              href="mailto:prof.juneidshaikh18@gmail.com?subject=Let's%20Talk%20About%20Opportunities"
               className={styles.navCta}
               aria-label="Contact me via email"
             >
@@ -146,10 +217,11 @@ export default function Home() {
           </div>
         </nav>
 
-        <section className={styles.sub_container} aria-labelledby="hero-heading">
-          <h2 className={styles.sub_container_h2}>
-            Juneid Shaikh
-          </h2>
+        <section
+          className={styles.sub_container}
+          aria-labelledby="hero-heading"
+        >
+          <h2 className={styles.sub_container_h2}>Juneid Shaikh</h2>
           <div className={styles.availabilityBadge}>
             <span className={styles.badgeDot}></span>
             Open to Work • Available Immediately • Remote or On-site (India)
@@ -158,25 +230,28 @@ export default function Home() {
             Full-Stack Developer Who Ships Production-Ready Code
           </h1>
           <p className={styles.hero_description}>
-            I build end-to-end applications with React, Node.js, and modern cloud infrastructure.
+            I build end-to-end applications with React, Node.js, and modern
+            cloud infrastructure.
           </p>
           <p className={styles.hero_description}>
-            <strong>For recruiters:</strong> 3+ years building production apps, strong problem-solving, ready to contribute day one.
-            <strong>For founders:</strong> I handle the full stack—UI, APIs, databases, deployment, and scaling decisions.
+            <strong>For recruiters:</strong> 3+ years building production apps,
+            strong problem-solving, ready to contribute day one.
+            <strong>For founders:</strong> I handle the full stack—UI, APIs,
+            databases, deployment, and scaling decisions.
           </p>
           <div className={styles.socialProof}>
-            <a 
-              href="https://github.com/juneid18" 
-              target="_blank" 
+            <a
+              href="https://github.com/juneid18"
+              target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
               aria-label="View my GitHub profile"
             >
               <FaGithub /> GitHub
             </a>
-            <a 
-              href="https://www.linkedin.com/in/juneid-shaikh/" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/juneid-shaikh/"
+              target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
               aria-label="View my LinkedIn profile"
@@ -186,27 +261,27 @@ export default function Home() {
             <span className={styles.timezone}>📍 IST (UTC+5:30)</span>
           </div>
           <div className={styles.cta_container}>
-            <a 
-              href="#projects" 
+            <a
+              href="#projects"
               className={styles.cta_primary}
               aria-label="View my projects"
             >
               View Projects
             </a>
-            <a 
-              href="/assets/resume.docx" 
+            <a
+              href="/assets/resume.docx"
               download
               className={styles.cta_secondary}
               aria-label="Download my resume"
             >
               Download Resume
             </a>
-            <a 
+            <a
               href="mailto:prof.juneidshaikh18@gmail.com?subject=Let's%20Talk%20About%20Opportunities"
               className={styles.cta_tertiary}
               aria-label="Contact me via email"
             >
-              Let's Talk
+              Let&apos;s Talk
             </a>
           </div>
           <Image
@@ -267,7 +342,7 @@ export default function Home() {
         </section>
       </main>
       <footer className={styles.footer}>
-        <span>© All Rights Reserved By Juneid 💗.</span>
+        <span>© All Rights Reserved By Juneid Shaikh 💗.</span>
       </footer>
     </>
   );

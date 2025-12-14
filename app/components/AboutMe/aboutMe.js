@@ -6,9 +6,12 @@ const AboutMe = () => {
   return (
     <>
       <div className={styles.skillsHeader}>
-          <h2 id="about-heading">About Me</h2>
-          <p>A glimpse into my background, passion, and the journey that has shaped me both personally and professionally.</p>
-        </div>
+        <h2 id="about-heading">About Me</h2>
+        <p>
+          A glimpse into my background, passion, and the journey that has shaped
+          me both personally and professionally.
+        </p>
+      </div>
       <div className={styles.about_container}>
         <div className={styles.designContainer}>
           <span className={styles.line1}>.</span>
@@ -41,18 +44,35 @@ const AboutMe = () => {
         <div className={styles.about_container_right}>
           <h2>Hello There!</h2>
           <p>
-            I'm a full-stack developer who builds products with real users and real constraints — not just classroom tutorials. I focus on solving problems end-to-end: clean UI, solid backend logic, reliable infrastructure, and smooth deployment.
+            I&apos;m a full-stack developer who builds products with real users
+            and real constraints — not just classroom tutorials. I focus on
+            solving problems end-to-end: clean UI, solid backend logic, reliable
+            infrastructure, and smooth deployment.
           </p>
 
-          
           <p>
-            I’ve shipped projects like an automated YouTube scheduling SaaS, an AI-based fridge scanner, a full-stack blogging system with authentication, and a real-time chat platform. Each project forced me to think like an engineer — handling edge cases, making architecture decisions, optimizing performance, and keeping the system stable when things go wrong.
+            I&apos;ve shipped projects like an automated YouTube scheduling
+            SaaS, an AI-based fridge scanner, a full-stack blogging system with
+            authentication, and a real-time chat platform. Each project forced
+            me to think like an engineer — handling edge cases, making
+            architecture decisions, optimizing performance, and keeping the
+            system stable when things go wrong.
           </p>
-          
-          <p>I care about writing clean, predictable code that future me doesn’t hate, and I’m constantly improving how I design systems, review code, and break down complex tasks. I’m comfortable learning whatever a problem demands — React, Node.js, MongoDB, authentication flows, background jobs, cloud storage, or automation tools.</p>
-          
+
           <p>
-            Right now, I’m looking for a role where I can take ownership, contribute to a real product from day one, and grow alongside people who take engineering seriously. If you’re looking for someone who works hard, learns fast, and actually delivers, then we should talk.
+            I care about writing clean, predictable code that future me
+            doesn&apos;t hate, and I&apos;m constantly improving how I design
+            systems, review code, and break down complex tasks. I&apos;m comfortable
+            learning whatever a problem demands — React, Node.js, MongoDB,
+            authentication flows, background jobs, cloud storage, or automation
+            tools.
+          </p>
+
+          <p>
+            Right now, I&apos;m looking for a role where I can take ownership,
+            contribute to a real product from day one, and grow alongside people
+            who take engineering seriously. If you&apos;re looking for someone who
+            works hard, learns fast, and actually delivers, then we should talk.
           </p>
           <a
             href="https://www.linkedin.com/in/juneid-shaikh/"

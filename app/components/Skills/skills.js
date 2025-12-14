@@ -9,7 +9,7 @@ export default function Skills() {
       <header className={styles.skillsHeader}>
         <h2 id="skills-heading">Technical Skills</h2>
         <p>
-          Tools and technologies I’ve used to design, build, and ship real
+          Tools and technologies I&apos;ve used to design, build, and ship real
           applications — not just tutorials.
         </p>
       </header>

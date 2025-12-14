@@ -45,7 +45,7 @@ const WhyHireMe = () => {
       <header className={styles.header}>
         <h2 id="why-hire-me-heading">Why Hire Me?</h2>
         <p>
-          Beyond technical skills—here's what makes me a strong team member and 
+          Beyond technical skills—here&apos;s what makes me a strong team member and 
           someone you can trust to deliver.
         </p>
       </header>
@@ -78,7 +78,7 @@ const WhyHireMe = () => {
           className={styles.ctaButton}
           aria-label="Contact me to discuss opportunities"
         >
-          Let's Start a Conversation
+          Let&apos;s Start a Conversation
         </a>
       </div>
     </section>

@@ -61,7 +61,7 @@ const CaseStudies = () => {
       <header className={styles.header}>
         <h2 id="case-studies-heading">Case Studies</h2>
         <p>
-          Real projects with real constraints. Here's how I approach problems, 
+          Real projects with real constraints. Here&apos;s how I approach problems, 
           make technical decisions, and deliver results.
         </p>
       </header>
