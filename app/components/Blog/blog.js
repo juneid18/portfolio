@@ -15,7 +15,7 @@ const Achievements = () => {
   useEffect(() => {
     const fetchAchievements = async () => {
       try {
-        const query = `*[_type == 'blog']`;
+        const query = `*[_type == "blog" && title != "visits"]`;
         const data = await client.fetch(query);
 
         if (!data?.length) {
@@ -43,14 +43,14 @@ const Achievements = () => {
         <header className={styles.header}>
           <h2 id="blog-heading">Professional Achievements</h2>
           <p>
-            Key milestones and accomplishments demonstrating my technical expertise 
+            Key milestones and accomplishments demonstrating my technical expertise
             and professional growth.
           </p>
         </header>
 
         <div className={styles.grid}>
           {achievements.map((achievement, index) => (
-            <article 
+            <article
               key={achievement._id}
               className={styles.card}
               onMouseEnter={() => setHoveredIndex(index)}

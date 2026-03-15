@@ -12,7 +12,7 @@
 }
 
 .header h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   margin-bottom: 1rem;
   color: var(--text-primary);
   background: var(--primary-gradient);
@@ -22,7 +22,7 @@
 }
 
 .header p {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: var(--text-secondary);
   line-height: 1.6;
   max-width: 600px;
@@ -52,7 +52,8 @@
 
 .imageWrapper {
   position: relative;
-  padding-top: 60%; /* 3:2 aspect ratio */
+  padding-top: 60%;
+  /* 3:2 aspect ratio */
   background: #f0f0f0;
 }
 
@@ -73,6 +74,7 @@
   margin-bottom: 1.25rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -305,6 +307,7 @@
 
   .description {
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   .featuredCard {

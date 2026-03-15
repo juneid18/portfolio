@@ -15,7 +15,7 @@
 }
 
 .header h2 {
-  font-size: 42px;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
   font-weight: 900;
   margin-bottom: 16px;
   color: var(--text-primary);
@@ -26,7 +26,7 @@
 }
 
 .header p {
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   color: var(--text-secondary);
   max-width: 700px;
   margin: 0 auto;
@@ -191,36 +191,49 @@
   filter: brightness(1.1);
 }
 
+@media (max-width: 1024px) {
+  .caseStudiesList {
+    width: 95%;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
-    padding: 60px 16px;
+    padding: 3rem 1.5rem;
   }
 
-  .header h2 {
-    font-size: 32px;
+  .caseStudiesList {
+    width: 100%;
+    gap: 40px;
   }
 
   .caseStudy {
-    padding: 24px;
+    padding: 1.5rem;
   }
 
   .caseStudyHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .caseNumber {
-    font-size: 36px;
+    font-size: 2.5rem;
     min-width: auto;
   }
 
   .caseStudyHeader h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
-  .sectionTitle {
-    font-size: 18px;
+  .projectLinks {
+    flex-direction: column;
   }
 }
 
+@media (min-width: 1440px) {
+  .caseStudiesList {
+    max-width: 1200px;
+  }
+}

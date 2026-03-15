@@ -11,7 +11,7 @@
 }
 
 .header h2 {
-  font-size: 42px;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
   font-weight: 900;
   margin-bottom: 16px;
   color: var(--text-primary);
@@ -22,7 +22,7 @@
 }
 
 .header p {
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   color: var(--text-secondary);
   max-width: 700px;
   margin: 0 auto;
@@ -127,26 +127,33 @@
   background-color: #f8f8f8;
 }
 
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .container {
-    padding: 60px 16px;
-  }
-
-  .header h2 {
-    font-size: 32px;
+    padding: 3rem 1.5rem;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
 
-  .card {
-    padding: 24px;
+  .ctaSection {
+    padding: 30px 20px;
   }
 
-  .cardTitle {
-    font-size: 20px;
+  .ctaText {
+    font-size: 18px;
   }
 }
 
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1300px;
+  }
+}

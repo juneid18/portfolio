@@ -12,6 +12,7 @@ import Projects from "./components/Projects/projects";
 import Blog from "./components/Blog/blog";
 import CaseStudies from "./components/CaseStudies/caseStudies";
 import WhyHireMe from "./components/WhyHireMe/whyHireMe";
+import VisitCounter from "./components/VisitCounter/VisitCounter";
 
 import { FaLongArrowAltUp, FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -215,6 +216,8 @@ export default function Home() {
           <Blog />
         </section>
       </main>
+
+      <VisitCounter />
 
       {/* Scroll to top */}
       <a href="#home" className={styles.scrollTop} aria-label="Scroll to top">

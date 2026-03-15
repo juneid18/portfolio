@@ -1,0 +1,111 @@
+.visitContainer {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.visitCard {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(102, 126, 234, 0.25);
+    border-radius: 100px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.visitCard:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+    letter-spacing: -0.3px;
+}
+
+.countText {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.count {
+    font-size: 15px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 45px;
+    /* Prevent jitter during count-up */
+    text-align: right;
+}
+
+.statusIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+    animation: dynamicPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes dynamicPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.3);
+    }
+}
+
+@media (max-width: 768px) {
+    .visitContainer {
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .visitCard {
+        padding: 5px 12px;
+        gap: 8px;
+    }
+
+    .label {
+        font-size: 11px;
+    }
+
+    .count {
+        font-size: 13px;
+        min-width: 35px;
+    }
+}
+
+@media (max-width: 500px) {
+    .visitContainer {
+        display: none;
+        /* Auto-hide on mobile to keep the hero clean */
+    }
+}
